@@ -3,8 +3,10 @@ import person_icon from "/person_icon.png"; // Assuming you have the icon at thi
 import Call_icon from "/call.png"; // Assuming you have the icon at this path
 import Group_icon from "/groups.png"; // Assuming you have the icon at this path
 import mail_icon from "/mail.png"; // Assuming you have the icon at this path
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -23,7 +25,8 @@ const SignupForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log(formData);
+    navigate("/home");
+    alert("Data Submitted");
   };
 
   return (
@@ -147,6 +150,7 @@ const SignupForm = () => {
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+            onClick={handleSubmit}
           >
             Proceed
           </button>
